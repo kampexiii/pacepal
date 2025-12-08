@@ -26,13 +26,14 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="stylesheet" href="css/animations.css" />
+    <script src="js/theme.js"></script>
   </head>
   <body>
     <!-- Header -->
     <header id="site-header" class="fixed-top bg-white shadow-sm py-3">
       <nav class="navbar navbar-expand-lg navbar-light container">
         <a class="navbar-brand" href="#">
-          <img src="img/pacepal.png" alt="PacePal Logo" height="40" />
+          <img src="img/common/logo.png" alt="PacePal Logo" height="40" />
         </a>
         <button
           class="navbar-toggler"
@@ -67,12 +68,24 @@
                 >Comunidad</a
               >
             </li>
-            <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
+            <li class="nav-item ms-lg-3 mt-2 mt-lg-0 d-flex gap-2">
               <a
-                href="#cta-final"
-                class="btn btn-primary btn-cta btn-animate rounded-pill px-4"
-                >Ingresar en PacePal</a
+                href="pages/auth/login.html"
+                class="btn btn-outline-dark rounded-pill px-4"
+                >Inicia sesión</a
               >
+              <a
+                href="pages/auth/registro.html"
+                class="btn btn-primary btn-cta btn-animate rounded-pill px-4"
+                >Regístrate</a
+              >
+              <button
+                id="theme-toggle"
+                class="btn btn-link text-decoration-none p-0 ms-3 border-0"
+                aria-label="Cambiar tema"
+              >
+                <i class="bi bi-moon-stars-fill theme-icon fs-5 text-dark"></i>
+              </button>
             </li>
           </ul>
         </div>
@@ -111,7 +124,7 @@
           <div class="col-md-6 text-center reveal-on-scroll delay-200">
             <div class="hero-image-container img-float">
               <img
-                src="img/pacepalHero.png"
+                src="img/landing/pacepalHero.png"
                 alt="PacePal App Mockup"
                 class="img-fluid rounded-4 shadow-lg"
               />
@@ -250,7 +263,7 @@
           <!-- Imagen -->
           <div class="col-md-6 reveal-on-scroll delay-200">
             <img
-              src="img/pacepalNike.png"
+              src="img/landing/pacepalNike.png"
               alt="PacePal x Nike Sustainability"
               class="img-fluid rounded-4 shadow-lg"
             />
@@ -350,7 +363,7 @@
           Únete a la comunidad de runners más grande y sostenible.
         </p>
         <a
-          href="#"
+          href="pages/auth/registro.html"
           class="btn btn-primary btn-lg rounded-pill px-5 py-3 fw-bold btn-animate cta-pulse"
           >Registrarte en PacePal Gratis</a
         >

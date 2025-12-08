@@ -1,0 +1,117 @@
+/* 
+   Archivo: registro.css
+   Descripción: Estilos específicos para la página de registro.
+*/
+
+/* Reset del padding global del body */
+body {
+    padding-top: 0 !important;
+}
+
+/* Layout principal centrado */
+.auth-layout {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-bg-light);
+    padding: 2rem 1rem;
+}
+
+/* Tarjeta del formulario */
+.auth-card {
+    background-color: var(--color-white);
+    width: 100%;
+    max-width: 720px; /* AUMENTA ANCHURA EN ESCRITORIO */
+    padding: 2.5rem;
+    border-radius: 1.25rem;
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(128, 128, 128, 0.2);
+}
+
+/* Estilos de campos */
+.campo label {
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: var(--color-text-main);
+}
+
+.campo input, 
+.campo select {
+    border-radius: 0.5rem;
+    padding: 0.75rem 1rem;
+    border: 1px solid rgba(128, 128, 128, 0.3);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    background-color: var(--color-white);
+    color: var(--color-text-main);
+}
+
+.campo input:focus, 
+.campo select:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(144, 253, 37, 0.2);
+    outline: none;
+}
+
+/* Password Toggle */
+.password-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.password-wrapper input {
+    width: 100%;
+    padding-right: 3rem;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 0.75rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    color: var(--color-text-muted);
+    z-index: 10;
+}
+
+.toggle-password:focus-visible {
+    outline: 2px solid var(--color-primary);
+    border-radius: 999px;
+}
+
+.input-error {
+    border-color: #dc3545 !important;
+}
+
+.form-error {
+    color: #dc3545;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+    min-height: 1.25rem;
+}
+
+.form-success {
+    color: #155724;
+    font-weight: 600;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    background-color: #d4edda;
+    display: none;
+}
+
+.form-success:not(:empty) {
+    display: block;
+}
+
+/* Grupo de tarjeta (condicional) */
+#grupo-tarjeta {
+    background-color: var(--color-bg-light);
+    border-color: rgba(128, 128, 128, 0.2) !important;
+    color: var(--color-text-main);
+}
+
+#grupo-tarjeta h5 {
+    color: var(--color-text-main);
+}

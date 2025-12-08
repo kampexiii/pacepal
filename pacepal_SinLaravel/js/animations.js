@@ -1,7 +1,6 @@
 /**
  * Archivo: animations.js
  * Descripción: Lógica JavaScript para controlar las animaciones basadas en scroll y eventos.
- * Autor: GitHub Copilot (Simulando al usuario)
  */
 
 document.addEventListener('DOMContentLoaded', () => {

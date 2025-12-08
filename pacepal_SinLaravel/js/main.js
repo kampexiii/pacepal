@@ -1,4 +1,8 @@
-// Main JavaScript for PacePal
+/**
+ * Archivo: main.js
+ * Descripción: Script principal para la landing page de PacePal.
+ * Gestiona el smooth scrolling y eventos generales.
+ */
 
 document.addEventListener('DOMContentLoaded', () => {
     console.log('PacePal landing page loaded successfully.');

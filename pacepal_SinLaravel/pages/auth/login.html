@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PacePal – Iniciar sesión</title>
+    <!-- Bootstrap 5 CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+    />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="../../css/styles.css" />
+    <link rel="stylesheet" href="../../css/animations.css" />
+    <link rel="stylesheet" href="../../css/pages/auth/login.css" />
+    <script src="../../js/theme.js"></script>
+  </head>
+  <body>
+    <div class="auth-layout pt-0">
+      <div class="auth-card">
+        <!-- Controles: Inicio y Tema -->
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <a href="../../index.html" class="btn btn-outline-secondary btn-sm rounded-pill">
+                <i class="bi bi-house-door-fill me-1"></i> Inicio
+            </a>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Cambiar tema">
+                <span class="theme-icon" aria-hidden="true">🌙</span>
+            </button>
+        </div>
+
+        <div class="text-center mb-4">
+          <img
+            src="../../img/common/logo.png"
+            alt="Logo PacePal"
+            height="50"
+            class="mb-3"
+          />
+          <h2 class="h3 fw-bold">Iniciar sesión</h2>
+          <p class="text-muted small">¡Hola de nuevo, runner!</p>
+        </div>
+
+        <form id="form-login" class="auth-form" novalidate>
+          <!-- Email -->
+          <div class="campo mb-3">
+            <label for="login-email" class="form-label"
+              >Correo electrónico</label
+            >
+            <input
+              type="email"
+              id="login-email"
+              name="login_email"
+              class="form-control"
+              required
+              autocomplete="email"
+            />
+          <!-- Contraseña -->
+          <div class="campo mb-4 input-group password-group">
+            <label for="login-password" class="form-label">Contraseña</label>
+            <div class="password-wrapper w-100">
+                <input
+                type="password"
+                id="login-password"
+                name="login_password"
+                class="form-control"
+                required
+                autocomplete="current-password"
+                />
+                <button
+                type="button"
+                class="toggle-password"
+                data-target="login-password"
+                aria-label="Mostrar u ocultar contraseña"
+                >
+                <i class="bi bi-eye"></i>
+                </button>
+            </div>
+            <p
+              class="form-error"
+              id="error-login-password"
+              aria-live="polite"
+            ></p>
+          </div>
+
+          <!-- Checkbox Recuérdame -->
+          <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" id="remember-me">
+            <label class="form-check-label" for="remember-me">Recuérdame</label>
+          </div>
+
+          <!-- Botón Submit -->
+          <button type="submit" class="btn btn-primary w-100 rounded-pill">
+            Iniciar sesión
+          </button>
+        </form>
+
+        <div
+          id="login-exito"
+          class="form-success mt-3 text-center"
+          aria-live="polite"
+        ></div>
+
+        <div class="mt-4 text-center border-top pt-3">
+          <p class="mb-0">¿No tienes cuenta?</p>
+          <a
+            href="registro.html"
+            class="btn btn-outline-primary btn-sm mt-2 rounded-pill"
+            >Ir a Registrarse</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <script src="../../js/validaciones.js"></script>
+    <script src="../../js/formulario.js"></script>
+  </body>
+</html>

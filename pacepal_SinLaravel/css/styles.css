@@ -17,11 +17,25 @@
     --color-text-muted: #666666;
     --color-white: #FFFFFF;
     
+    /* Header Background - Verde Beige constante */
+    --header-bg: rgba(247, 254, 240, 0.95); /* #F7FEF0 con transparencia */
+    --color-nav-text: #1A1A1A; /* Texto siempre oscuro para el header */
+
     /* Tipografía */
     --font-main: 'Inter', sans-serif;
     
     /* Espaciado */
     --section-padding: 4rem 0;
+}
+
+:root[data-theme="dark"] {
+    /* Ajustes para Modo Oscuro */
+    --color-bg-light: #000000;     /* Fondo secundario muy oscuro */
+    --color-text-main: #FFFFFF;    /* Texto principal blanco */
+    --color-text-muted: #E8FDE0;   /* Verde blanco (Greenish White) para subtítulos */
+    --color-white: #111111;        /* Superficies (tarjetas) oscuras */
+    
+    /* Header mantiene su color original, no se sobrescribe --header-bg */
 }
 
 /* -----------------------------------------------------------
@@ -33,6 +47,7 @@ body {
     background-color: var(--color-white);
     padding-top: 76px; /* Espacio para el header fijo */
     overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -45,6 +60,11 @@ p {
     color: var(--color-text-muted);
     line-height: 1.6;
     margin-bottom: 1rem;
+}
+
+/* Override para clase de Bootstrap */
+.text-muted {
+    color: var(--color-text-muted) !important;
 }
 
 a {
@@ -60,7 +80,7 @@ a {
 .btn-primary {
     background-color: var(--color-primary);
     border-color: var(--color-primary);
-    color: var(--color-text-main);
+    color: #1A1A1A; /* Siempre oscuro para contraste */
     font-weight: 600;
     padding: 0.75rem 1.5rem;
     border-radius: 50rem; /* Pill shape */
@@ -69,7 +89,7 @@ a {
 .btn-primary:hover, .btn-primary:focus {
     background-color: var(--color-primary-dark);
     border-color: var(--color-primary-dark);
-    color: var(--color-text-main);
+    color: #1A1A1A;
 }
 
 .btn-outline-dark {
@@ -77,6 +97,13 @@ a {
     font-weight: 600;
     padding: 0.75rem 1.5rem;
     border-radius: 50rem;
+    color: var(--color-text-main);
+    border-color: var(--color-text-main);
+}
+
+.btn-outline-dark:hover {
+    background-color: var(--color-text-main);
+    color: var(--color-white);
 }
 
 /* Texto destacado */
@@ -119,7 +146,7 @@ a {
    ----------------------------------------------------------- */
 #site-header {
     transition: all 0.3s ease;
-    background-color: rgba(255, 255, 255, 0.95);
+    background-color: var(--header-bg);
     backdrop-filter: blur(10px);
 }
 
@@ -129,7 +156,7 @@ a {
 
 .nav-link {
     font-weight: 500;
-    color: var(--color-text-main) !important;
+    color: var(--color-nav-text) !important;
     margin: 0 0.5rem;
 }
 
@@ -144,7 +171,8 @@ a {
 /* Hero Section */
 #hero {
     padding: 3rem 0 5rem;
-    background: linear-gradient(180deg, #FFFFFF 0%, var(--color-bg-light) 100%);
+    /* Usamos var(--color-white) en lugar de #FFFFFF para que el gradiente funcione en dark mode */
+    background: linear-gradient(180deg, var(--color-white) 0%, var(--color-bg-light) 100%);
     overflow: hidden;
 }
 
@@ -201,7 +229,7 @@ a {
     width: 50px;
     height: 50px;
     background-color: var(--color-secondary);
-    color: var(--color-white);
+    color: #FFFFFF; /* Siempre blanco el número */
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -214,12 +242,12 @@ a {
 /* Sostenible Section */
 #sostenible {
     padding: var(--section-padding);
-    background-color: #111111; /* Fondo oscuro especial */
-    color: var(--color-white);
+    background-color: #111111; /* Fondo oscuro especial siempre */
+    color: #FFFFFF; /* Texto siempre blanco en esta sección */
 }
 
 #sostenible h2, #sostenible h3, #sostenible p {
-    color: var(--color-white);
+    color: #FFFFFF;
 }
 
 #sostenible .text-primary {
@@ -275,7 +303,7 @@ a {
 }
 
 #contacto h5 {
-    color: var(--color-white);
+    color: #FFFFFF;
 }
 
 .social-links a {
