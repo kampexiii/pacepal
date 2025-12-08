@@ -9,7 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // 1. Toggle Password (Ojo / Ojo Tachado)
     // -----------------------------------------------------------
     // Esta funcionalidad es de UX/UI y no depende de las validaciones de Cliente.
-    // Se mantiene activa para facilitar la interacción.
     document.querySelectorAll('.toggle-password').forEach(btn => {
         btn.addEventListener('click', () => {
             const targetId = btn.getAttribute('data-target');
@@ -21,60 +20,184 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Cambiar icono usando Bootstrap Icons
             if (isHidden) {
-                // Ahora se ve el texto -> icono de ocultar (ojo tachado)
                 btn.innerHTML = '<i class="bi bi-eye-slash"></i>';
                 btn.setAttribute('aria-label', 'Ocultar contraseña');
             } else {
-                // Ahora está oculto -> icono de mostrar (ojo normal)
                 btn.innerHTML = '<i class="bi bi-eye"></i>';
                 btn.setAttribute('aria-label', 'Mostrar contraseña');
             }
         });
     });
 
+
     // -----------------------------------------------------------
     // 2. Gestión de Formularios (Registro y Login)
     // -----------------------------------------------------------
-    
-    // Archivo: formulario.js
-    // Aquí preparo la estructura para gestionar los formularios de registro y login.
-    // La lógica de validación y mensajes la implementará Pacheco en este archivo.
 
-    // TODO Pacheco:
-    // 1. Obtener referencias a los formularios de registro y login.
-    // const formRegistro = document.getElementById('form-registro');
-    // const formLogin = document.getElementById('form-login');
+    const formRegistro = document.getElementById('form-registro');
+    const formLogin = document.getElementById('form-login');
 
-    // 2. Añadir listeners para el evento submit en ambos formularios.
-    // if (formRegistro) {
-    //   // formRegistro.addEventListener('submit', function (event) {
-    //   //   // TODO Pacheco: prevenir envío, leer campos, llamar a validaciones.js
-    //   //   // y mostrar mensajes de error o éxito sin recargar la página.
-    //   // });
+    // ===========================================================
+    // FUNCIONES AUXILIARES
+    // ===========================================================
+
+    /**
+     * Pinta un mensaje de error bajo un campo
+     */
+    function mostrarError(idCampo, mensaje) {
+        const errorP = document.getElementById(`error-${idCampo}`);
+        const input = document.getElementById(idCampo);
+
+        if (errorP) errorP.textContent = mensaje;
+        if (input) input.classList.add('input-error');
+    }
+
+    /**
+     * Limpia todos los errores de un formulario
+     */
+    function limpiarErrores(form) {
+        form.querySelectorAll('.form-error').forEach(p => p.textContent = '');
+        form.querySelectorAll('.input-error').forEach(i => i.classList.remove('input-error'));
+    }
+
+    /**
+     * Muestra un mensaje de éxito general
+     */
+    function mostrarExito(id, mensaje) {
+        const contenedor = document.getElementById(id);
+        if (contenedor) contenedor.textContent = mensaje;
+    }
+
+
+    // ===========================================================
+    // 3. FORMULARIO DE REGISTRO
+    // ===========================================================
+    if (formRegistro) {
+
+        // Mostrar u ocultar campo tarjeta dinámicamente
+        const direccion = document.getElementById("direccion");
+        const pais = document.getElementById("pais");
+        const grupoTarjeta = document.getElementById("grupo-tarjeta");
+
+        function actualizarVisibilidadTarjeta() {
+            if (debeMostrarTarjeta(direccion.value, pais.value)) {
+                grupoTarjeta.classList.remove("oculto");
+            } else {
+                grupoTarjeta.classList.add("oculto");
+            }
+        }
+
+        direccion.addEventListener("input", actualizarVisibilidadTarjeta);
+        pais.addEventListener("change", actualizarVisibilidadTarjeta);
+
+        formRegistro.addEventListener('submit', (event) => {
+            event.preventDefault();
+            limpiarErrores(formRegistro);
+
+            let errores = 0;
+
+            // Obtener valores
+            const nombre = document.getElementById("nombre").value;
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+            const confirm = document.getElementById("confirm-password").value;
+            const fecha = document.getElementById("fecha-nacimiento").value;
+            const tarjeta = document.getElementById("tarjeta").value;
+
+            // Validación nombre
+            if (!esNombreValido(nombre)) {
+                mostrarError("nombre", "Nombre no válido. Use máximo 2 palabras, solo letras.");
+                errores++;
+            }
+
+            // Validación email
+            if (!esEmailValido(email)) {
+                mostrarError("email", "Formato de correo incorrecto.");
+                errores++;
+            }
+
+            // Validación contraseña
+            if (!esPasswordValida(password)) {
+                mostrarError("password", "La contraseña no cumple los requisitos.");
+                errores++;
+            }
+
+            // Confirmación de contraseña
+            if (!coincidenPasswords(password, confirm)) {
+                mostrarError("confirm-password", "Las contraseñas no coinciden.");
+                errores++;
+            }
+
+            // Validación fecha (opcional)
+            if (fecha) {
+                const fechaError = validarFechaNacimiento(fecha);
+                if (fechaError !== "") {
+                    mostrarError("fecha-nacimiento", fechaError);
+                    errores++;
+                }
+            }
+
+            // Validación tarjeta (solo si visible)
+            if (!grupoTarjeta.classList.contains("oculto")) {
+                if (!esTarjetaValida(tarjeta)) {
+                    mostrarError("tarjeta", "Tarjeta inválida. Debe contener 16 dígitos.");
+                    errores++;
+                }
+            }
+
+            if (errores > 0) return;
+
+            // ÉXITO
+            mostrarExito("registro-exito", "Cuenta creada con éxito. Redirigiendo...");
+
+            setTimeout(() => {
+                window.location.href = "login.html";
+            }, 1000);
+        });
+
+    }
+
+
+    // ===========================================================
+    // 4. FORMULARIO LOGIN
+    // ===========================================================
+    if (formLogin) {
+        formLogin.addEventListener("submit", (event) => {
+            event.preventDefault();
+            limpiarErrores(formLogin);
+
+            let errores = 0;
+
+            const email = document.getElementById("login-email").value;
+            const password = document.getElementById("login-password").value;
+
+            if (!esEmailValido(email)) {
+                mostrarError("login-email", "Correo no válido.");
+                errores++;
+            }
+
+            if (password.trim().length < 4) {
+                mostrarError("login-password", "Contraseña incorrecta.");
+                errores++;
+            }
+
+            if (errores > 0) return;
+
+            mostrarExito("login-exito", "Inicio de sesión exitoso. Redirigiendo...");
+
+            setTimeout(() => {
+                window.location.href = "index.html";
+            }, 1000);
+        });
+    }
+
+
+    // ===========================================================
+    // 5. CONEXIÓN FUTURA CON BACK-END (DWES)
+    // ===========================================================
+
+    // function enviarDatosAlServidor(datos) {
+    //   // TODO: implementar llamada fetch/AJAX al servidor DWES.
     // }
-
-    // if (formLogin) {
-    //   // formLogin.addEventListener('submit', function (event) {
-    //   //   // TODO Pacheco: validar email y contraseña del login.
-    //   // });
-    // }
-
-    // 3. Crear funciones auxiliares para:
-    //    - pintar errores bajo cada input,
-    //    - resaltar campos con error,
-    //    - mostrar mensajes de éxito,
-    //    - limpiar mensajes al corregir el campo.
-    // // function mostrarError(campo, mensaje) { ... }
-    // // function limpiarErrores(form) { ... }
-
-    // 4. Integrar la lógica con validaciones.js:
-    //    - Usar esNombreValido, esEmailValido, esPasswordValida, etc.
-    //    - Usar debeMostrarTarjeta para decidir si se enseña el campo tarjeta.
-
-    // 5. Dejar preparado el punto donde se conectará con el futuro Back-End (DWES).
-    //    Por ejemplo:
-    //    // function enviarDatosAlServidor(datos) {
-    //    //   // TODO Pacheco y DWES: llamada fetch/AJAX al servidor.
-    //    // }
 
 });

@@ -1,38 +1,117 @@
 // Archivo: validaciones.js
 // Aquí centralizo todas las funciones de validación del módulo Cliente (DWEC).
-// La implementación real de cada función la hará Pacheco más adelante.
+// Implementación realizada siguiendo las pautas indicadas.
 
-// Valida nombre y apellidos del usuario (debe contener máximo dos palabras).
-// Pendiente: comprobar longitud, palabras, caracteres válidos, etc.
-// function esNombreValido(nombre) {
-//   // TODO Pacheco: implementar validación completa de nombre y apellidos.
-// }
+// ======================================================
+// 1. Validación de Nombre y Apellidos (máx. dos palabras)
+// ======================================================
+//
+// Reglas:
+// - Mínimo 2 caracteres por palabra.
+// - Máximo 2 palabras (nombre + apellido).
+// - Solo letras, espacios y acentos.
+// - Extensión total entre 2 y 50 caracteres.
+//
+function esNombreValido(nombre) {
+    if (!nombre || typeof nombre !== "string") return false;
 
-// Valida el formato del email.
-// Pendiente: usar expresión regular robusta para validar emails reales.
-// function esEmailValido(email) {
-//   // TODO Pacheco: implementar validación completa de email.
-// }
+    const limpio = nombre.trim();
+    if (limpio.length < 2 || limpio.length > 50) return false;
 
-// Valida la contraseña según las reglas del enunciado:
+    const palabras = limpio.split(/\s+/);
+    if (palabras.length > 2) return false;
+
+    const regexNombre = /^[A-Za-zÁÉÍÓÚÜáéíóúüÑñ]{2,}$/;
+
+    return palabras.every((p) => regexNombre.test(p));
+}
+
+
+
+// ==========================
+// 2. Validación de Email
+// ==========================
+//
+// Regex robusta estándar RFC 5322 simplificada.
+// Asegura:
+// - No espacios
+// - Tiene @ y dominio
+// - Extensión mínima requerida
+//
+function esEmailValido(email) {
+    if (!email || typeof email !== "string") return false;
+
+    const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return regexEmail.test(email.trim());
+}
+
+
+
+// ==========================
+// 3. Validación de Password
+// ==========================
+//
+// Reglas:
 // - Mínimo 8 caracteres
-// - Al menos una minúscula, una mayúscula, un número y un símbolo.
-// function esPasswordValida(password) {
-//   // TODO Pacheco: implementar validación fuerte de contraseña.
-// }
+// - Al menos una minúscula
+// - Al menos una mayúscula
+// - Al menos un número
+// - Al menos un símbolo
+//
+function esPasswordValida(password) {
+    if (!password || typeof password !== "string") return false;
 
-// Comprueba si la confirmación de la contraseña coincide con la original.
-// function coincidenPasswords(password, confirmPassword) {
-//   // TODO Pacheco: comparar contraseñas y devolver si coinciden.
-// }
+    const regexPassword =
+        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/;
 
-// Valida el número de tarjeta de crédito (solo si se muestra).
-// Pendiente: decidir si usar algoritmo de Luhn o validación más simple.
-// function esTarjetaValida(numeroTarjeta) {
-//   // TODO Pacheco: implementar validación de tarjeta.
-// }
+    return regexPassword.test(password);
+}
 
-// Determina si se debe mostrar el campo de tarjeta en función de Dirección y País.
-// function debeMostrarTarjeta(direccion, pais) {
-//   // TODO Pacheco: devolver true/false según los criterios acordados.
-// }
+
+
+// ===========================================
+// 4. Confirmación de Contraseñas
+// ===========================================
+function coincidenPasswords(password, confirmPassword) {
+    return password === confirmPassword;
+}
+
+
+
+// ===========================================
+// 5. Validación de Tarjeta
+// ===========================================
+//
+// Implementación sencilla con regex:
+// - 16 dígitos
+// - Permite espacios entre bloques
+// *Si quisieras implementar Luhn, puedo añadirlo.
+//
+function esTarjetaValida(numeroTarjeta) {
+    if (!numeroTarjeta || typeof numeroTarjeta !== "string") return false;
+
+    const limpio = numeroTarjeta.replace(/\s+/g, "");
+
+    const regexTarjeta = /^\d{16}$/;
+    return regexTarjeta.test(limpio);
+}
+
+
+
+// ============================================================
+// 6. Control de visualización de tarjeta según Dirección y País
+// ============================================================
+//
+// Criterios orientativos:
+// - Se muestra SOLO si ambos campos están presentes.
+// - País debe ser España (ES) o México (MX) por ejemplo.
+// - Esto se puede ajustar si lo deseas.
+//
+function debeMostrarTarjeta(direccion, pais) {
+    if (!direccion || !direccion.trim()) return false;
+    if (!pais || !pais.trim()) return false;
+
+    const paisesPermitidos = ["ES", "MX", "US"];
+
+    return paisesPermitidos.includes(pais);
+}
