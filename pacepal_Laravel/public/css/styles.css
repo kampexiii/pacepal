@@ -1,0 +1,334 @@
+/* 
+   Archivo: styles.css
+   Descripción: Estilos principales del sitio PacePal (Layout, Tipografía, Colores).
+   Estructura: Mobile First con Media Queries para Desktop.
+*/
+
+/* -----------------------------------------------------------
+   1. Variables CSS (Paleta PacePal)
+   ----------------------------------------------------------- */
+:root {
+    /* Colores Oficiales */
+    --color-primary: #90FD25;      /* Verde Neón */
+    --color-primary-dark: #76d618; /* Hover */
+    --color-secondary: #519B08;    /* Verde Oscuro */
+    --color-bg-light: #F4F4F4;     /* Gris Claro */
+    --color-text-main: #1A1A1A;    /* Negro Texto */
+    --color-text-muted: #666666;
+    --color-white: #FFFFFF;
+    
+    /* Tipografía */
+    --font-main: 'Inter', sans-serif;
+    
+    /* Espaciado */
+    --section-padding: 4rem 0;
+}
+
+/* -----------------------------------------------------------
+   2. Reset y Base
+   ----------------------------------------------------------- */
+body {
+    font-family: var(--font-main);
+    color: var(--color-text-main);
+    background-color: var(--color-white);
+    padding-top: 76px; /* Espacio para el header fijo */
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    color: var(--color-text-main);
+    margin-bottom: 1rem;
+}
+
+p {
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* -----------------------------------------------------------
+   3. Componentes Reutilizables
+   ----------------------------------------------------------- */
+
+/* Botones */
+.btn-primary {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+    color: var(--color-text-main);
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    border-radius: 50rem; /* Pill shape */
+}
+
+.btn-primary:hover, .btn-primary:focus {
+    background-color: var(--color-primary-dark);
+    border-color: var(--color-primary-dark);
+    color: var(--color-text-main);
+}
+
+.btn-outline-dark {
+    border-width: 2px;
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    border-radius: 50rem;
+}
+
+/* Texto destacado */
+.text-highlight {
+    color: var(--color-secondary);
+    position: relative;
+    display: inline-block;
+    z-index: 1;
+}
+
+.text-highlight::after {
+    content: '';
+    position: absolute;
+    bottom: 2px;
+    left: -2px;
+    width: 105%;
+    height: 10px;
+    background-color: var(--color-primary);
+    opacity: 0.4;
+    z-index: -1;
+    transform: rotate(-1deg);
+}
+
+/* Placeholders de Imagen (Gris con borde) */
+.img-placeholder {
+    background-color: #e5e7eb;
+    border: 2px dashed #9ca3af;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #6b7280;
+    font-weight: 500;
+    border-radius: 1rem;
+    width: 100%;
+    overflow: hidden;
+}
+
+/* -----------------------------------------------------------
+   4. Header y Navegación
+   ----------------------------------------------------------- */
+#site-header {
+    transition: all 0.3s ease;
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+}
+
+.navbar-brand img {
+    display: block;
+}
+
+.nav-link {
+    font-weight: 500;
+    color: var(--color-text-main) !important;
+    margin: 0 0.5rem;
+}
+
+.nav-link.active {
+    color: var(--color-secondary) !important;
+}
+
+/* -----------------------------------------------------------
+   5. Secciones (Mobile First)
+   ----------------------------------------------------------- */
+
+/* Hero Section */
+#hero {
+    padding: 3rem 0 5rem;
+    background: linear-gradient(180deg, #FFFFFF 0%, var(--color-bg-light) 100%);
+    overflow: hidden;
+}
+
+.hero-content {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.hero-image-container {
+    max-width: 350px;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* Problema Section */
+#problema {
+    padding: var(--section-padding);
+    background-color: var(--color-bg-light);
+}
+
+.problem-card {
+    background: var(--color-white);
+    border-radius: 1rem;
+    padding: 2rem;
+    height: 100%;
+    border: 1px solid rgba(0,0,0,0.05);
+    text-align: center; /* Mobile default */
+}
+
+.icon-box {
+    width: 64px;
+    height: 64px;
+    background-color: rgba(144, 253, 37, 0.2);
+    color: var(--color-secondary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    font-size: 1.75rem;
+}
+
+/* Cómo Funciona Section */
+#como-funciona {
+    padding: var(--section-padding);
+}
+
+.step-card {
+    text-align: center; /* Mobile default */
+    padding: 1.5rem;
+}
+
+.step-number {
+    width: 50px;
+    height: 50px;
+    background-color: var(--color-secondary);
+    color: var(--color-white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0 auto 1rem;
+}
+
+/* Sostenible Section */
+#sostenible {
+    padding: var(--section-padding);
+    background-color: #111111; /* Fondo oscuro especial */
+    color: var(--color-white);
+}
+
+#sostenible h2, #sostenible h3, #sostenible p {
+    color: var(--color-white);
+}
+
+#sostenible .text-primary {
+    color: var(--color-primary) !important;
+}
+
+.eco-list li {
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+}
+
+.eco-list li i {
+    color: var(--color-primary);
+    margin-right: 0.75rem;
+}
+
+/* Comunidad Section */
+#comunidad {
+    padding: var(--section-padding);
+    background-color: var(--color-bg-light);
+}
+
+.testimonial-card {
+    background: var(--color-white);
+    border-radius: 1rem;
+    padding: 2rem;
+    height: 100%;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+}
+
+.stars {
+    color: #FFC107;
+    margin-bottom: 1rem;
+}
+
+/* CTA Final */
+#cta-final {
+    padding: 6rem 0;
+    text-align: center;
+    background-color: var(--color-white);
+}
+
+/* Footer */
+#contacto {
+    background-color: #1A1A1A;
+    color: #9CA3AF;
+    padding: 4rem 0 2rem;
+}
+
+#contacto h4 {
+    color: var(--color-primary);
+}
+
+#contacto h5 {
+    color: var(--color-white);
+}
+
+.social-links a {
+    font-size: 1.5rem;
+    margin-right: 1rem;
+    transition: color 0.2s;
+}
+
+.social-links a:hover {
+    color: var(--color-primary);
+}
+
+/* -----------------------------------------------------------
+   6. Media Queries (Desktop Adaptation)
+   ----------------------------------------------------------- */
+@media (min-width: 768px) {
+    
+    /* General */
+    body {
+        padding-top: 86px;
+    }
+
+    h1 { font-size: 3.5rem; }
+    h2 { font-size: 2.5rem; }
+
+    /* Hero: 2 Columnas */
+    #hero {
+        padding: 5rem 0;
+        text-align: left;
+    }
+
+    .hero-content {
+        text-align: left;
+        margin-bottom: 0;
+        padding-right: 2rem;
+    }
+
+    .hero-buttons {
+        justify-content: flex-start;
+    }
+
+    /* Problema: 3 Columnas (Grid de Bootstrap se encarga, ajustamos alineación si es necesario) */
+    /* Cómo Funciona: 3 Pasos en fila */
+    
+    /* Sostenible: 2 Columnas */
+    /* El orden en HTML es Texto -> Imagen. En desktop está bien. */
+    
+    /* Testimonios: 3 en fila */
+}
+
+@media (min-width: 992px) {
+    .navbar-expand-lg .navbar-nav .nav-link {
+        padding-right: 1rem;
+        padding-left: 1rem;
+    }
+}
