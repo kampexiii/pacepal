@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PacePal - Tu compañero de running</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Google Fonts (Inter) -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+    />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/animations.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header id="site-header" class="fixed-top bg-white shadow-sm py-3">
+      <nav class="navbar navbar-expand-lg navbar-light container">
+        <a class="navbar-brand" href="#">
+          <img src="img/pacepal.png" alt="PacePal Logo" height="40" />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto align-items-center">
+            <li class="nav-item">
+              <a class="nav-link nav-link-animate" href="#problema"
+                >El Problema</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link nav-link-animate" href="#como-funciona"
+                >Cómo Funciona</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link nav-link-animate" href="#sostenible"
+                >Sostenibilidad</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link nav-link-animate" href="#comunidad"
+                >Comunidad</a
+              >
+            </li>
+            <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
+              <a
+                href="#cta-final"
+                class="btn btn-primary btn-cta btn-animate rounded-pill px-4"
+                >Ingresar en PacePal</a
+              >
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="d-flex align-items-center">
+      <div class="container">
+        <div class="row align-items-center flex-column-reverse flex-md-row">
+          <!-- Texto (Izquierda en Desktop, Abajo en Mobile) -->
+          <div class="col-md-6 mt-4 mt-md-0 hero-content reveal-on-scroll">
+            <h1 class="display-4 fw-bold mb-3">
+              Corre acompañado, <span class="text-highlight">corre mejor</span>.
+            </h1>
+            <p class="lead mb-4">
+              Encuentra tu compañero de running ideal y alcanza tus metas de
+              forma sostenible.
+            </p>
+            <div
+              class="d-flex gap-3 justify-content-center justify-content-md-start hero-buttons"
+            >
+              <a
+                href="#cta-final"
+                class="btn btn-primary btn-lg rounded-pill px-5 btn-animate"
+                >Empezar ahora</a
+              >
+              <a
+                href="#como-funciona"
+                class="btn btn-outline-dark btn-lg rounded-pill px-5 btn-animate"
+                >Saber más</a
+              >
+            </div>
+          </div>
+          <!-- Imagen (Derecha en Desktop, Arriba en Mobile) -->
+          <div class="col-md-6 text-center reveal-on-scroll delay-200">
+            <div class="hero-image-container img-float">
+              <img
+                src="img/pacepalHero.png"
+                alt="PacePal App Mockup"
+                class="img-fluid rounded-4 shadow-lg"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Problema Section -->
+    <section id="problema">
+      <div class="container">
+        <div class="text-center mb-5 reveal-on-scroll">
+          <h2 class="fw-bold">¿Por qué PacePal?</h2>
+          <p class="text-muted">
+            Correr solo puede ser difícil. Nosotros lo hacemos fácil.
+          </p>
+        </div>
+        <div class="row g-4">
+          <!-- Card 1 -->
+          <div class="col-md-4 reveal-on-scroll delay-100">
+            <div class="problem-card hover-card-effect">
+              <div class="icon-box">
+                <i class="bi bi-person-x"></i>
+              </div>
+              <h5 class="card-title fw-bold">Falta de Motivación</h5>
+              <p class="card-text">
+                Es difícil mantener la constancia cuando corres solo sin nadie
+                que te anime.
+              </p>
+            </div>
+          </div>
+          <!-- Card 2 -->
+          <div class="col-md-4 reveal-on-scroll delay-200">
+            <div class="problem-card hover-card-effect">
+              <div class="icon-box">
+                <i class="bi bi-shield-check"></i>
+              </div>
+              <h5 class="card-title fw-bold">Seguridad</h5>
+              <p class="card-text">
+                Correr en grupo o en pareja es siempre más seguro, especialmente
+                de noche.
+              </p>
+            </div>
+          </div>
+          <!-- Card 3 -->
+          <div class="col-md-4 reveal-on-scroll delay-300">
+            <div class="problem-card hover-card-effect">
+              <div class="icon-box">
+                <i class="bi bi-people"></i>
+              </div>
+              <h5 class="card-title fw-bold">Comunidad</h5>
+              <p class="card-text">
+                Conecta con personas que comparten tus mismos objetivos y
+                pasiones.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cómo Funciona Section -->
+    <section id="como-funciona">
+      <div class="container">
+        <div class="text-center mb-5 reveal-on-scroll">
+          <h2 class="fw-bold">Cómo funciona</h2>
+          <p class="text-muted">
+            Tres simples pasos para empezar a correr acompañado.
+          </p>
+        </div>
+        <div class="row g-4 text-center">
+          <!-- Step 1 -->
+          <div class="col-md-4 reveal-on-scroll delay-100">
+            <div class="step-card hover-card-effect">
+              <div class="step-number">1</div>
+              <h4 class="fw-bold mt-2">Crea tu perfil</h4>
+              <p>Define tu ritmo, tus horarios y tus objetivos de running.</p>
+            </div>
+          </div>
+          <!-- Step 2 -->
+          <div class="col-md-4 reveal-on-scroll delay-200">
+            <div class="step-card hover-card-effect">
+              <div class="step-number">2</div>
+              <h4 class="fw-bold mt-2">Encuentra tu Match</h4>
+              <p>
+                Nuestro algoritmo te conecta con corredores compatibles cerca de
+                ti.
+              </p>
+            </div>
+          </div>
+          <!-- Step 3 -->
+          <div class="col-md-4 reveal-on-scroll delay-300">
+            <div class="step-card hover-card-effect">
+              <div class="step-number">3</div>
+              <h4 class="fw-bold mt-2">¡A correr!</h4>
+              <p>Queda, corre y comparte tus logros con la comunidad.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sostenible Section -->
+    <section id="sostenible">
+      <div class="container">
+        <div class="row align-items-center">
+          <!-- Texto -->
+          <div class="col-md-6 mb-4 mb-md-0 reveal-on-scroll">
+            <h2 class="fw-bold mb-3 text-primary">Compromiso Ecosocial</h2>
+            <h3 class="h4 mb-4">Tienda Nike & Ropa Reciclada</h3>
+            <p class="mb-4">
+              En PacePal no solo nos preocupamos por tu salud, sino también por
+              la del planeta. Colaboramos con Nike para ofrecerte equipamiento
+              sostenible y gestionamos un programa de reciclaje de ropa
+              deportiva.
+            </p>
+            <ul class="list-unstyled eco-list">
+              <li>
+                <i class="bi bi-check-circle-fill"></i> Descuentos por reciclar
+                tus zapatillas viejas.
+              </li>
+              <li>
+                <i class="bi bi-check-circle-fill"></i> Colecciones fabricadas
+                con materiales 100% reciclados.
+              </li>
+              <li>
+                <i class="bi bi-check-circle-fill"></i> Eventos de "Plogging"
+                (correr recogiendo basura).
+              </li>
+            </ul>
+            <a href="#" class="btn btn-primary rounded-pill mt-3 btn-animate"
+              >Ver Tienda Sostenible</a
+            >
+          </div>
+          <!-- Imagen -->
+          <div class="col-md-6 reveal-on-scroll delay-200">
+            <img
+              src="img/pacepalNike.png"
+              alt="PacePal x Nike Sustainability"
+              class="img-fluid rounded-4 shadow-lg"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Comunidad Section -->
+    <section id="comunidad">
+      <div class="container">
+        <div class="text-center mb-5 reveal-on-scroll">
+          <h2 class="fw-bold">Lo que dicen nuestros runners</h2>
+        </div>
+        <div class="row g-4">
+          <!-- Testimonial 1 -->
+          <div class="col-md-4 reveal-on-scroll delay-100">
+            <div class="testimonial-card hover-card-effect">
+              <div class="stars">
+                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i
+                ><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i
+                ><i class="bi bi-star-fill"></i>
+              </div>
+              <p class="fst-italic">
+                "Gracias a PacePal encontré un grupo para salir a correr por las
+                mañanas. ¡Ya no me da pereza madrugar!"
+              </p>
+              <div class="d-flex align-items-center mt-3">
+                <div
+                  class="bg-secondary rounded-circle me-3"
+                  style="width: 40px; height: 40px"
+                ></div>
+                <div>
+                  <h6 class="fw-bold mb-0">Laura G.</h6>
+                  <small class="text-muted">Madrid</small>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Testimonial 2 -->
+          <div class="col-md-4 reveal-on-scroll delay-200">
+            <div class="testimonial-card hover-card-effect">
+              <div class="stars">
+                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i
+                ><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i
+                ><i class="bi bi-star-fill"></i>
+              </div>
+              <p class="fst-italic">
+                "La iniciativa de reciclaje es genial. Pude renovar mis
+                zapatillas y ayudar al medio ambiente."
+              </p>
+              <div class="d-flex align-items-center mt-3">
+                <div
+                  class="bg-secondary rounded-circle me-3"
+                  style="width: 40px; height: 40px"
+                ></div>
+                <div>
+                  <h6 class="fw-bold mb-0">Carlos M.</h6>
+                  <small class="text-muted">Barcelona</small>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Testimonial 3 -->
+          <div class="col-md-4 reveal-on-scroll delay-300">
+            <div class="testimonial-card hover-card-effect">
+              <div class="stars">
+                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i
+                ><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i
+                ><i class="bi bi-star-fill"></i>
+              </div>
+              <p class="fst-italic">
+                "Nunca pensé que correr pudiera ser tan social. He hecho grandes
+                amigos aquí."
+              </p>
+              <div class="d-flex align-items-center mt-3">
+                <div
+                  class="bg-secondary rounded-circle me-3"
+                  style="width: 40px; height: 40px"
+                ></div>
+                <div>
+                  <h6 class="fw-bold mb-0">Ana P.</h6>
+                  <small class="text-muted">Valencia</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Final Section -->
+    <section id="cta-final" class="reveal-on-scroll">
+      <div class="container">
+        <h2 class="display-5 fw-bold mb-4">¿Listo para empezar?</h2>
+        <p class="lead mb-5">
+          Únete a la comunidad de runners más grande y sostenible.
+        </p>
+        <a
+          href="#"
+          class="btn btn-primary btn-lg rounded-pill px-5 py-3 fw-bold btn-animate cta-pulse"
+          >Registrarte en PacePal Gratis</a
+        >
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contacto">
+      <div class="container">
+        <div class="row gy-4">
+          <div class="col-md-4">
+            <h4 class="fw-bold mb-3">PacePal</h4>
+            <p class="text-white-50">
+              Conectando runners, cuidando el planeta.
+            </p>
+          </div>
+          <div class="col-md-4">
+            <h5 class="mb-3">Enlaces Rápidos</h5>
+            <ul class="list-unstyled text-white-50">
+              <li>
+                <a
+                  href="#hero"
+                  class="text-decoration-none text-white-50 hover-white"
+                  >Inicio</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#como-funciona"
+                  class="text-decoration-none text-white-50 hover-white"
+                  >Cómo funciona</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#sostenible"
+                  class="text-decoration-none text-white-50 hover-white"
+                  >Sostenibilidad</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-decoration-none text-white-50 hover-white"
+                  >Términos y Condiciones</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-4">
+            <h5 class="mb-3">Contacto</h5>
+            <p class="text-white-50">hola@pacepal.com</p>
+            <div class="d-flex gap-3 social-links">
+              <a href="#"><i class="bi bi-instagram"></i></a>
+              <a href="#"><i class="bi bi-twitter-x"></i></a>
+              <a href="#"><i class="bi bi-facebook"></i></a>
+            </div>
+          </div>
+        </div>
+        <hr class="my-4 border-secondary" />
+        <div class="text-center text-white-50">
+          <small>&copy; 2025 PacePal. Todos los derechos reservados.</small>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
+    <script src="js/animations.js"></script>
+  </body>
+</html>
