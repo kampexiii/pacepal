@@ -2,78 +2,150 @@
 
 **PacePal** es una plataforma digital diseñada para revolucionar la experiencia del running, conectando a corredores para combatir el sedentarismo y fomentar hábitos saludables a través de la comunidad.
 
-Este repositorio contiene el desarrollo progresivo de la aplicación web, abarcando desde el diseño de la interfaz (DIW) hasta la implementación de la lógica de cliente (DWEC).
+Este repositorio contiene el desarrollo progresivo de la aplicación web, abarcando desde el diseño de la interfaz (DIW) hasta la implementación de la lógica de cliente (DWEC) y la preparación para el entorno servidor (DWES).
 
 ---
 
-## 🎯 Objetivo del Proyecto
+## 🎯 Propósito del Proyecto
 
-El objetivo es crear una **Landing Page y un sistema de autenticación** profesional, responsive y accesible.
+El objetivo principal es crear una solución web profesional que promueva:
 
-- **DIW (Diseño de Interfaces Web):** Maquetación HTML5/CSS3, diseño responsive, animaciones y estética de marca.
-- **DWEC (Desarrollo Web en Entorno Cliente):** Lógica JavaScript para validación de formularios, interactividad dinámica y gestión del DOM.
+- **Conexión Social:** Unir a personas con intereses similares.
+- **Hábitos Saludables:** Fomentar el ejercicio regular.
+- **Rutas Activas:** Descubrimiento de nuevos caminos seguros.
+- **Sostenibilidad:** Integración de valores ecológicos en la práctica deportiva.
+
+---
+
+## 🚀 Módulos del Proyecto
+
+Este repositorio integra el trabajo de varios módulos formativos:
+
+### 1. Diseño de Interfaces Web (DIW)
+
+Enfoque en la experiencia de usuario (UX) y la interfaz gráfica (UI).
+
+- **Landing Page:** Diseño atractivo y funcional orientado a la conversión.
+- **Responsive Design:** Adaptabilidad total a dispositivos móviles (Mobile First).
+- **Estética:** Uso de paleta de colores corporativa, tipografía legible y animaciones suaves.
+
+### 2. Desarrollo Web en Entorno Cliente (DWEC)
+
+Implementación de la lógica de negocio en el navegador.
+
+- **Validaciones:** Control exhaustivo de formularios (Registro y Login) antes del envío.
+- **Interactividad:** Comportamiento dinámico de campos y feedback visual inmediato.
+- **Modularidad:** Código JavaScript organizado y reutilizable.
+
+### 3. Desarrollo Web en Entorno Servidor (DWES - Pre-integración)
+
+- La carpeta `pacepal_Laravel/` contiene la estructura base para el futuro desarrollo del backend, base de datos y lógica de servidor.
+
+---
+
+## 🛠 Tecnologías Utilizadas
+
+El stack tecnológico ha sido seleccionado por su robustez y estandarización:
+
+- **Frontend:** HTML5 Semántico, CSS3 (Variables, Flexbox, Grid), Bootstrap 5.
+- **Scripting:** JavaScript (ES6+) Modular.
+- **Accesibilidad:** Cumplimiento de pautas WCAG 2.1 (AA).
+- **Testing:** Selenium IDE, Katalon Recorder.
+
+---
+
+## ✨ Funcionalidades Implementadas
+
+- **Landing Page Completa:** Secciones informativas con navegación fluida.
+- **Gestión de Tema:** Modo Claro / Modo Oscuro persistente.
+- **Formulario de Registro:**
+  - Validación de complejidad de contraseña.
+  - Validación de formato de email y nombres.
+  - **Campo Dinámico:** Aparición de "Tarjeta de Crédito" solo al completar Dirección y País.
+- **Formulario de Login:** Validación de credenciales y formato.
+- **Feedback de Usuario:** Mensajes de error descriptivos y notificaciones de éxito sin recarga de página.
+- **Tests Automatizados:** Scripts funcionales para asegurar la calidad del software.
+
+---
+
+## ♿ Accesibilidad (WCAG)
+
+Se ha priorizado la inclusión siguiendo estándares internacionales:
+
+- **Etiquetado:** Uso correcto de `<label>` asociado a controles.
+- **ARIA:** Implementación de `aria-invalid` y `aria-live` para lectores de pantalla.
+- **Contraste:** Colores verificados para legibilidad óptima.
+- **Navegación:** Flujo lógico mediante tabulación (Keyboard Navigation).
 
 ---
 
 ## 📂 Estructura del Repositorio
 
+La organización de archivos refleja una arquitectura limpia y escalable:
+
 ```text
-pacepal/
+pacepal_SinLaravel/
+│   index.html                  # Página principal (Landing)
 │
-├── pacepal_SinLaravel/       # PROYECTO PRINCIPAL (Front-End Puro)
-│   ├── css/                  # Estilos (Bootstrap + Custom)
-│   ├── js/                   # Lógica JS (Validaciones, DOM, Tema)
-│   ├── pages/                # Páginas internas (Login, Registro)
-│   ├── docs/                 # Documentación del proyecto
-│   │   ├── cliente/          # Documentación específica DWEC
-│   │   └── pacepalWireframe/ # Bocetos de diseño
-│   ├── tests/                # Tests funcionales (Selenium/Katalon)
-│   └── index.html            # Landing Page
+├───css/
+│   │   animations.css          # Efectos visuales
+│   │   styles.css              # Estilos globales
+│   └───pages/auth/*.css        # Estilos específicos de autenticación
 │
-├── pacepal_Laravel/          # (Futura implementación Back-End)
+├───docs/
+│   │   guion_video_presentacion.md
+│   │   README.md
+│   ├───cliente/                # Documentación DWEC (Historias, Validaciones, Tests)
+│   ├───diw/                    # Documentación DIW (Bocetos, Análisis)
+│   └───sostenibilidad/         # Documentación del proyecto sostenible
 │
-└── README.md                 # Este archivo
+├───img/
+│   ├───common/                 # Logos e iconos
+│   └───landing/                # Imágenes de la landing page
+│
+├───js/
+│   │   animations.js           # Lógica de animaciones
+│   │   formulario.js           # Gestión del DOM de formularios
+│   │   main.js                 # Scripts generales
+│   │   theme.js                # Control de modo oscuro
+│   │   validaciones.js         # Lógica pura de validación
+│   └───pages/auth/*.js         # Scripts específicos por página
+│
+├───pages/auth/*.html           # Vistas de Login y Registro
+│
+└───tests/                      # Pruebas automatizadas
+    ├───login/
+    └───registro/
 ```
 
 ---
 
-## 🚀 Módulos Desarrollados
+## 📚 Documentación Detallada
 
-### 1. Diseño de Interfaz (DIW)
+Toda la documentación técnica se encuentra en la carpeta `docs/`:
 
-La **Landing Page** presenta la propuesta de valor de PacePal.
+### Módulo Cliente (`/docs/cliente/`)
 
-- **Características:** Diseño Mobile-First, animaciones al hacer scroll, modo oscuro/claro, integración con Bootstrap 5.
-- **Tecnologías:** HTML5, CSS3, Bootstrap Icons, Google Fonts (Inter).
+- **Historias de Usuario:** Definición formal de requisitos (Registro y Login).
+- **Explicación de Formularios:** Detalle del comportamiento y campos.
+- **Validaciones:** Reglas de negocio implementadas (Regex, lógica condicional).
+- **Accesibilidad:** Informe de cumplimiento WCAG.
+- **Preparación Back-End:** Guía de integración para DWES.
+- **Guía de Tests:** Instrucciones para ejecutar Selenium/Katalon.
 
-### 2. Desarrollo Cliente (DWEC)
+### Módulo DIW (`/docs/diw/`)
 
-Implementación de los formularios de **Registro y Login** con validaciones robustas.
-
-- **Validaciones:** Regex para email y contraseñas seguras, control de longitud de nombres.
-- **Interactividad:** Campo de tarjeta de crédito que aparece dinámicamente según la dirección.
-- **Feedback:** Mensajes de error en tiempo real y confirmaciones de éxito sin recarga (SPA feel).
-- **Tests:** Pruebas funcionales automatizadas con Selenium IDE.
+- Bocetos (Wireframes) y análisis de diseño de la interfaz.
 
 ---
 
 ## 🌐 Visualización Online
 
-El proyecto está desplegado y accesible en GitHub Pages:
+El proyecto se encuentra desplegado en GitHub Pages:
 
-🔗 **[Ver Proyecto PacePal](https://kampexiii.github.io/pacepal/pacepal_SinLaravel/)**
+🔗 **[Acceder a PacePal](https://kampexiii.github.io/pacepal/pacepal_SinLaravel/)**
 
-_(Nota: Si el enlace no está activo, verificar la configuración del repositorio)._
-
----
-
-## 🧪 Ejecución de Tests
-
-Para validar la funcionalidad de los formularios, se incluyen scripts de prueba en la carpeta `pacepal_SinLaravel/tests/`.
-
-1.  Instalar la extensión **Selenium IDE** en Chrome/Firefox.
-2.  Importar los archivos `.side` ubicados en `tests/registro/` o `tests/login/`.
-3.  Ejecutar los tests para verificar validaciones y flujos de éxito.
+> **Nota:** Si el enlace devuelve un error 404, por favor espere unos minutos tras el último commit o revise la configuración de GitHub Pages en _Settings → Pages_.
 
 ---
 
@@ -82,7 +154,7 @@ Para validar la funcionalidad de los formularios, se incluyen scripts de prueba 
 Este proyecto ha sido desarrollado por:
 
 - **Pablo Sevillano Aparicio** — Desarrollo Frontend, UX/UI, Lógica de Cliente y responsable de toda la parte de Servidor (arquitectura back-end, base de datos y desarrollo en Laravel u otras tecnologías).
-- **Alejandro Pacheco** — Desarrollo Frontend, Arquitectura del módulo Cliente y Documentación Técnica.
+- **Alejandro Pacheco** — Desarrollo Frontend, validaciones del módulo Cliente, arquitectura de formularios y documentación técnica.
 
 ---
 
