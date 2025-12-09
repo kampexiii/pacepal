@@ -145,8 +145,6 @@ El proyecto se encuentra desplegado en GitHub Pages:
 
 🔗 **[Acceder a PacePal](https://kampexiii.github.io/pacepal/pacepal_SinLaravel/)**
 
-> **Nota:** Si el enlace devuelve un error 404, por favor espere unos minutos tras el último commit o revise la configuración de GitHub Pages en _Settings → Pages_.
-
 ---
 
 ## 👥 Autores

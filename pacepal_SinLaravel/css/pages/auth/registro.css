@@ -115,3 +115,5 @@ body {
 #grupo-tarjeta h5 {
     color: var(--color-text-main);
 }
+
+.oculto { display: none !important; }

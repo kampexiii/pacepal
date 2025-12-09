@@ -75,20 +75,32 @@ document.addEventListener('DOMContentLoaded', () => {
     if (formRegistro) {
 
         // Mostrar u ocultar campo tarjeta dinámicamente
-        const direccion = document.getElementById("direccion");
-        const pais = document.getElementById("pais");
-        const grupoTarjeta = document.getElementById("grupo-tarjeta");
+        const direccionInput = document.getElementById("direccion");
+        const paisSelect = document.getElementById("pais");
+        const campoTarjeta = document.getElementById("grupo-tarjeta");
+        const inputTarjeta = document.getElementById("tarjeta");
 
+        // Comprueba si Dirección y País están completos y muestra u oculta el campo Tarjeta
         function actualizarVisibilidadTarjeta() {
-            if (debeMostrarTarjeta(direccion.value, pais.value)) {
-                grupoTarjeta.classList.remove("oculto");
+            const direccion = direccionInput.value.trim();
+            const pais = paisSelect.value.trim();
+
+            if (direccion !== "" && pais !== "") {
+                campoTarjeta.classList.remove("oculto");
             } else {
-                grupoTarjeta.classList.add("oculto");
+                campoTarjeta.classList.add("oculto");
+                // Opcional: limpiar contenido e invalidaciones previas
+                if (inputTarjeta) inputTarjeta.value = "";
             }
         }
 
-        direccion.addEventListener("input", actualizarVisibilidadTarjeta);
-        pais.addEventListener("change", actualizarVisibilidadTarjeta);
+        if (direccionInput && paisSelect && campoTarjeta) {
+            direccionInput.addEventListener("input", actualizarVisibilidadTarjeta);
+            paisSelect.addEventListener("change", actualizarVisibilidadTarjeta);
+            
+            // Asegurar estado inicial correcto
+            actualizarVisibilidadTarjeta();
+        }
 
         formRegistro.addEventListener('submit', (event) => {
             event.preventDefault();
