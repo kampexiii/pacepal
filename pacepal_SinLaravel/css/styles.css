@@ -150,6 +150,17 @@ a {
     backdrop-filter: blur(10px);
 }
 
+/* Fix para botón en header: siempre oscuro porque el header es claro */
+#site-header .btn-outline-dark {
+    color: var(--color-nav-text);
+    border-color: var(--color-nav-text);
+}
+
+#site-header .btn-outline-dark:hover {
+    background-color: var(--color-nav-text);
+    color: #FFFFFF;
+}
+
 .navbar-brand img {
     display: block;
 }
