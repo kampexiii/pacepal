@@ -81,8 +81,8 @@ Para validar la funcionalidad de los formularios, se incluyen scripts de prueba 
 
 Este proyecto ha sido desarrollado por:
 
-- **Pablo Sevillano Aparicio** — Desarrollo Frontend, UX/UI y Lógica de Cliente.
-- **Alejandro Pacheco** — Desarrollo Frontend, Arquitectura y Documentación Técnica.
+- **Pablo Sevillano Aparicio** — Desarrollo Frontend, UX/UI, Lógica de Cliente y responsable de toda la parte de Servidor (arquitectura back-end, base de datos y desarrollo en Laravel u otras tecnologías).
+- **Alejandro Pacheco** — Desarrollo Frontend, Arquitectura del módulo Cliente y Documentación Técnica.
 
 ---
 
