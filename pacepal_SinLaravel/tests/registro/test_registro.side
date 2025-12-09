@@ -1,0 +1,222 @@
+{
+  "id": "5f3b1e4a-8d2a-4b5c-9e1f-7a8b9c0d1e2f",
+  "version": "2.0",
+  "name": "PacePal Tests",
+  "url": "http://localhost/pacepal/pacepal_SinLaravel",
+  "tests": [{
+    "id": "1a2b3c4d-5e6f-7a8b-9c0d-1e2f3a4b5c6d",
+    "name": "Registro",
+    "commands": [
+      {
+        "id": "1",
+        "comment": "",
+        "command": "open",
+        "target": "/pages/auth/registro.html",
+        "targets": [],
+        "value": ""
+      },
+      {
+        "id": "2",
+        "comment": "Enviar formulario vacío",
+        "command": "click",
+        "target": "css=button[type='submit']",
+        "targets": [],
+        "value": ""
+      },
+      {
+        "id": "3",
+        "comment": "Verificar error nombre",
+        "command": "assertText",
+        "target": "id=error-nombre",
+        "targets": [],
+        "value": "Nombre no válido. Use máximo 2 palabras, solo letras."
+      },
+      {
+        "id": "4",
+        "comment": "Verificar error email",
+        "command": "assertText",
+        "target": "id=error-email",
+        "targets": [],
+        "value": "Formato de correo incorrecto."
+      },
+      {
+        "id": "5",
+        "comment": "Verificar error password",
+        "command": "assertText",
+        "target": "id=error-password",
+        "targets": [],
+        "value": "La contraseña no cumple los requisitos."
+      },
+      {
+        "id": "6",
+        "comment": "Verificar error confirm password",
+        "command": "assertText",
+        "target": "id=error-confirm-password",
+        "targets": [],
+        "value": "Las contraseñas no coinciden."
+      },
+      {
+        "id": "7",
+        "comment": "Introducir contraseña inválida",
+        "command": "type",
+        "target": "id=password",
+        "targets": [],
+        "value": "invalid"
+      },
+      {
+        "id": "8",
+        "comment": "",
+        "command": "click",
+        "target": "css=button[type='submit']",
+        "targets": [],
+        "value": ""
+      },
+      {
+        "id": "9",
+        "comment": "Verificar mensaje error password",
+        "command": "assertText",
+        "target": "id=error-password",
+        "targets": [],
+        "value": "La contraseña no cumple los requisitos."
+      },
+      {
+        "id": "10",
+        "comment": "Introducir email inválido",
+        "command": "type",
+        "target": "id=email",
+        "targets": [],
+        "value": "invalid-email"
+      },
+      {
+        "id": "11",
+        "comment": "",
+        "command": "click",
+        "target": "css=button[type='submit']",
+        "targets": [],
+        "value": ""
+      },
+      {
+        "id": "12",
+        "comment": "Verificar mensaje error email",
+        "command": "assertText",
+        "target": "id=error-email",
+        "targets": [],
+        "value": "Formato de correo incorrecto."
+      },
+      {
+        "id": "13",
+        "comment": "Rellenar Dirección",
+        "command": "type",
+        "target": "id=direccion",
+        "targets": [],
+        "value": "Calle Prueba 123"
+      },
+      {
+        "id": "14",
+        "comment": "Seleccionar País",
+        "command": "select",
+        "target": "id=pais",
+        "targets": [],
+        "value": "label=España"
+      },
+      {
+        "id": "15",
+        "comment": "Verificar campo tarjeta visible",
+        "command": "assertVisible",
+        "target": "id=grupo-tarjeta",
+        "targets": [],
+        "value": ""
+      },
+      {
+        "id": "16",
+        "comment": "Borrar Dirección",
+        "command": "type",
+        "target": "id=direccion",
+        "targets": [],
+        "value": ""
+      },
+      {
+        "id": "17",
+        "comment": "Verificar campo tarjeta oculto",
+        "command": "assertNotVisible",
+        "target": "id=grupo-tarjeta",
+        "targets": [],
+        "value": ""
+      },
+      {
+        "id": "18",
+        "comment": "Rellenar Nombre válido",
+        "command": "type",
+        "target": "id=nombre",
+        "targets": [],
+        "value": "Juan Perez"
+      },
+      {
+        "id": "19",
+        "comment": "Rellenar Email válido",
+        "command": "type",
+        "target": "id=email",
+        "targets": [],
+        "value": "juan.perez@example.com"
+      },
+      {
+        "id": "20",
+        "comment": "Rellenar Password válida",
+        "command": "type",
+        "target": "id=password",
+        "targets": [],
+        "value": "PacePal2025$"
+      },
+      {
+        "id": "21",
+        "comment": "Confirmar Password",
+        "command": "type",
+        "target": "id=confirm-password",
+        "targets": [],
+        "value": "PacePal2025$"
+      },
+      {
+        "id": "22",
+        "comment": "Rellenar Dirección de nuevo",
+        "command": "type",
+        "target": "id=direccion",
+        "targets": [],
+        "value": "Calle Real 45"
+      },
+      {
+        "id": "23",
+        "comment": "Rellenar Tarjeta",
+        "command": "type",
+        "target": "id=tarjeta",
+        "targets": [],
+        "value": "1234567812345678"
+      },
+      {
+        "id": "24",
+        "comment": "Enviar formulario completo",
+        "command": "click",
+        "target": "css=button[type='submit']",
+        "targets": [],
+        "value": ""
+      },
+      {
+        "id": "25",
+        "comment": "Verificar éxito",
+        "command": "assertText",
+        "target": "id=registro-exito",
+        "targets": [],
+        "value": "Cuenta creada con éxito. Redirigiendo..."
+      }
+    ]
+  }],
+  "suites": [{
+    "id": "suite-1",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["1a2b3c4d-5e6f-7a8b-9c0d-1e2f3a4b5c6d"]
+  }],
+  "urls": ["http://localhost/pacepal/pacepal_SinLaravel"],
+  "plugins": []
+}
