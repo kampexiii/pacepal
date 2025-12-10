@@ -82,15 +82,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Comprueba si Dirección y País están completos y muestra u oculta el campo Tarjeta
         function actualizarVisibilidadTarjeta() {
-            const direccion = direccionInput.value.trim();
-            const pais = paisSelect.value.trim();
+            // Pablo: Condición correcta para mostrar tarjeta
+            const tieneDireccion = direccionInput.value.trim() !== '';
+            const tienePais = paisSelect.value.trim() !== '';
 
-            if (direccion !== "" && pais !== "") {
+            if (tieneDireccion && tienePais) {
                 campoTarjeta.classList.remove("oculto");
             } else {
                 campoTarjeta.classList.add("oculto");
-                // Opcional: limpiar contenido e invalidaciones previas
+                // Pablo: Limpiar valor si se oculta
                 if (inputTarjeta) inputTarjeta.value = "";
+                // Pablo: Opcional, limpiar error
+                const errorTarjeta = document.getElementById("error-tarjeta");
+                if (errorTarjeta) errorTarjeta.textContent = "";
+                if (inputTarjeta) inputTarjeta.classList.remove('input-error');
             }
         }
 
@@ -135,7 +140,11 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             // Confirmación de contraseña
-            if (!coincidenPasswords(password, confirm)) {
+            // Pablo: Validar si está vacío o no coincide
+            if (confirm === "") {
+                mostrarError("confirm-password", "Debes confirmar la contraseña.");
+                errores++;
+            } else if (!coincidenPasswords(password, confirm)) {
                 mostrarError("confirm-password", "Las contraseñas no coinciden.");
                 errores++;
             }
@@ -150,7 +159,8 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             // Validación tarjeta (solo si visible)
-            if (!grupoTarjeta.classList.contains("oculto")) {
+            // Pablo: Usar campoTarjeta en lugar de grupoTarjeta
+            if (!campoTarjeta.classList.contains("oculto")) {
                 if (!esTarjetaValida(tarjeta)) {
                     mostrarError("tarjeta", "Tarjeta inválida. Debe contener 16 dígitos.");
                     errores++;
@@ -160,7 +170,11 @@ document.addEventListener('DOMContentLoaded', () => {
             if (errores > 0) return;
 
             // ÉXITO
-            mostrarExito("registro-exito", "Cuenta creada con éxito. Redirigiendo...");
+            // Pablo: Actualizar mensaje de éxito directamente
+            const registroExito = document.getElementById("registro-exito");
+            if (registroExito) {
+                registroExito.textContent = "Cuenta creada con éxito. Redirigiendo...";
+            }
 
             setTimeout(() => {
                 window.location.href = "login.html";

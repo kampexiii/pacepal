@@ -215,6 +215,20 @@ Esto garantiza que su base de datos solo reciba usuarios de calidad."
 PacePal es una app premium. Si el usuario indica su dirección y país, el sistema entiende que quiere ir en serio y **automáticamente despliega el campo de Tarjeta**.
 Si borro la dirección, el campo desaparece. Es una interfaz viva que reacciona al usuario."
 
+**Pablo:**
+"Y, igual que la landing, el formulario está totalmente adaptado a móvil."
+
+**(Acción: Abrir DevTools en el formulario de Registro, activar modo móvil – por ejemplo iPhone 12)**
+
+**Pablo:**
+"En pantalla pequeña, los campos ocupan todo el ancho disponible, el texto aumenta ligeramente para mejorar la lectura y los botones se vuelven más accesibles al tacto.
+Los mensajes de error y los iconos de validación se reacomodan debajo de cada input sin romper el diseño, así que la experiencia de registro en móvil es igual de clara y fluida que en escritorio."
+
+**(Acción: Cambiar brevemente al formulario de Login)**
+
+**Alejandro:**
+"El Login mantiene la misma filosofía responsive: estructura limpia, inputs grandes y mensajes visibles. Está optimizado para usarse directamente desde el móvil, que es desde donde más usuarios accederán."
+
 **(Acción: Completar registro exitoso)**
 
 **Pablo:**

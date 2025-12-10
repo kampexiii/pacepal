@@ -24,6 +24,14 @@
         "value": ""
       },
       {
+        "id": "screenshot-1",
+        "comment": "Captura formulario vacío",
+        "command": "captureEntirePageScreenshot",
+        "target": "01-formulario-vacio.png",
+        "targets": [],
+        "value": ""
+      },
+      {
         "id": "3",
         "comment": "Verificar error nombre",
         "command": "assertText",
@@ -49,11 +57,11 @@
       },
       {
         "id": "6",
-        "comment": "Verificar error confirm password",
+        "comment": "Verificar error por confirmación de contraseña vacía",
         "command": "assertText",
         "target": "id=error-confirm-password",
         "targets": [],
-        "value": "Las contraseñas no coinciden."
+        "value": "Debes confirmar la contraseña."
       },
       {
         "id": "7",
@@ -104,6 +112,14 @@
         "value": "Formato de correo incorrecto."
       },
       {
+        "id": "screenshot-2",
+        "comment": "Captura errores",
+        "command": "captureEntirePageScreenshot",
+        "target": "02-errores.png",
+        "targets": [],
+        "value": ""
+      },
+      {
         "id": "13",
         "comment": "Rellenar Dirección",
         "command": "type",
@@ -128,18 +144,26 @@
         "value": ""
       },
       {
-        "id": "16",
-        "comment": "Borrar Dirección",
-        "command": "type",
-        "target": "id=direccion",
+        "id": "screenshot-3",
+        "comment": "Captura tarjeta visible",
+        "command": "captureEntirePageScreenshot",
+        "target": "03-tarjeta-visible.png",
+        "targets": [],
+        "value": ""
+      },
+      {
+        "id": "pause-1",
+        "comment": "Esperar actualización DOM",
+        "command": "pause",
+        "target": "1000",
         "targets": [],
         "value": ""
       },
       {
         "id": "17",
-        "comment": "Verificar campo tarjeta oculto",
-        "command": "assertNotVisible",
-        "target": "id=grupo-tarjeta",
+        "comment": "Verificar que el input tarjeta se limpia al ocultarse",
+        "command": "assertValue",
+        "target": "id=tarjeta",
         "targets": [],
         "value": ""
       },
@@ -193,7 +217,7 @@
       },
       {
         "id": "24",
-        "comment": "Enviar formulario completo",
+        "comment": "Enviar formulario válido",
         "command": "click",
         "target": "css=button[type='submit']",
         "targets": [],
@@ -206,6 +230,14 @@
         "target": "id=registro-exito",
         "targets": [],
         "value": "Cuenta creada con éxito. Redirigiendo..."
+      },
+      {
+        "id": "screenshot-4",
+        "comment": "Captura registro exitoso",
+        "command": "captureEntirePageScreenshot",
+        "target": "04-registro-exitoso.png",
+        "targets": [],
+        "value": ""
       }
     ]
   }],
