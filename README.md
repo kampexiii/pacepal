@@ -169,16 +169,16 @@ La forma recomendada de ejecutar PacePal en local es mediante XAMPP, usando Apac
 Se recomienda clonar el proyecto dentro de `htdocs` para que Apache pueda resolver correctamente la API PHP.
 
 ```bash
-cd "C:\xampp\htdocs"
-git clone "https://github.com/Pacepal/pacepalAgile.git" "pacepalAgile"
-cd "pacepalAgile"
+cd "C:\xampp\htdocs\Proyectos-Pablo-Sevillano"
+git clone "https://github.com/kampexiii/pacepal.git" "PacePal"
+cd "PacePal"
 git checkout sprint3Definitivo
 ```
 
 Ruta recomendada:
 
 ```text
-C:\xampp\htdocs\pacepalAgile
+C:\xampp\htdocs\Proyectos-Pablo-Sevillano\PacePal
 ```
 
 Si se usa otra carpeta dentro de `htdocs`, habrá que adaptar la URL de la API en el archivo `.env.local`.
@@ -244,11 +244,11 @@ Copy-Item ".env.local.example" ".env.local"
 Contenido recomendado para `.env.local` usando XAMPP:
 
 ```env
-VITE_PACEPAL_API_BASE_URL=http://localhost/pacepalAgile/src/api/index.php/api
+VITE_PACEPAL_API_BASE_URL=http://localhost/Proyectos-Pablo-Sevillano/PacePal/src/api/index.php/api
 VITE_PACEPAL_ENABLE_STATIC_FALLBACK=false
 ```
 
-Si el proyecto se clona en una carpeta distinta a `pacepalAgile`, hay que actualizar la ruta de `VITE_PACEPAL_API_BASE_URL`.
+Si el proyecto se clona en una carpeta distinta a `PacePal`, hay que actualizar la ruta de `VITE_PACEPAL_API_BASE_URL`.
 
 ### 6. Ejecutar la aplicación
 
@@ -375,3 +375,12 @@ Proyecto desarrollado por:
 
 Este repositorio forma parte de un proyecto académico y técnico de desarrollo web.
 Su contenido se conserva como evidencia de desarrollo, documentación, pruebas, despliegue y evolución funcional del proyecto PacePal.
+
+<!-- ORGANIZACION-PROFESIONAL-20260708 -->
+## Organización profesional
+
+- Carpeta canónica local: `PacePal`.
+- Remoto actual: `kampexiii/pacepal`.
+- Rama de referencia: `sprint3Definitivo`.
+- Plan de mejora: [`ROADMAP.md`](ROADMAP.md).
+- Prioridad: convertirlo en caso de estudio limpio, con demo estable y documentación de instalación reproducible.
